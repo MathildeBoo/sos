@@ -1,0 +1,11 @@
+#
+# Directories
+#
+
+commun_dir = $(top_dir)/Commun
+coord_dir = $(top_dir)/Coord
+route_dir = $(top_dir)/Route
+voiture_dir = $(top_dir)/Voiture
+verrous_dir = $(top_dir)/Verrous
+exemples_dir = $(top_dir)/Exemples
+

@@ -1,0 +1,32 @@
+#
+# Option compilation 
+#
+
+# Macros pour creation des objets et edition de liens
+CCOBJ=gcc -c
+CCLNK=gcc 
+
+
+# Macro pour Debuggage: affichage de traces plus detaillees
+# Valeurs possibles: yes , no 
+DEBUG=yes
+
+ifeq ($(DEBUG),yes)
+	 FLAGS=-Wall -g -D_DEBUG_ -Wno-misleading-indentation
+else
+	 FLAGS=-Wall -Wno-misleading-indentation
+endif
+
+
+#
+# Chemin de l'utilitaire de documentation 
+#
+doxygen=/Applications/Doxygen.app/Contents/Resources/doxygen
+
+#
+# Chemins pour l'utilitaire de tests unitaires CUnit
+#
+LIB_CUNIT=-L/opt/homebrew/Cellar/cunit/2.1-3/lib -lcunit
+INC_CUNIT=-I/opt/homebrew/Cellar/cunit/2.1-3/include/CUnit
+
+

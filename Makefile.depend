@@ -1,0 +1,48 @@
+#
+#-------- Commun -------------
+#
+
+
+$(commun_dir)/commun.o : $(commun_dir)/commun.c $(commun_dir)/commun.h 
+	cd $(commun_dir) ; make -f Makefile commun.o
+
+#
+#-------- Coord -------------
+#
+
+$(coord_dir)/coord.h : $(commun_dir)/commun.h
+	cd $(coord_dir) ; make -f Makefile coord.h
+
+$(coord_dir)/coord.o : $(coord_dir)/coord.c $(coord_dir)/coord.h 
+	cd $(coord_dir) ; make -f Makefile coord.o
+
+$(coord_dir)/coords.h : $(coord_dir)/coord.h
+	cd $(coord_dir) ; make -f Makefile coords.h
+
+$(coord_dir)/coords.o : $(coord_dir)/coords.c $(coord_dir)/coords.h 
+	cd $(coord_dir) ; make -f Makefile coords.o
+
+#
+#-------- Voiture -------------
+#
+
+$(voiture_dir)/voiture.h : $(coord_dir)/coords.h
+	cd $(voiture_dir) ; make -f Makefile voiture.h
+
+$(voiture_dir)/voiture.o : $(voiture_dir)/voiture.c $(voiture_dir)/voiture.h  
+	cd $(voiture_dir) ; make -f Makefile voiture.o
+
+
+#
+#-------- Route -------------
+#
+
+$(route_dir)/route.h : $(voiture_dir)/voiture.h
+	cd $(route_dir) ; make -f Makefile route.h
+
+$(route_dir)/route.o : $(route_dir)/route.c $(route_dir)/route.h
+	cd $(route_dir) ; make -f Makefile route.o 
+
+
+
+
